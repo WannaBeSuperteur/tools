@@ -1,0 +1,88 @@
+
+
+
+### insert below into res/anim/test_anim_0.xml ###
+<?xml version="1.0" encoding="utf-8"?>
+<set xmlns:android="http://schemas.android.com/apk/res/android"
+xmlns:aapt="http://schemas.android.com/aapt">
+
+	<objectAnimator
+		android:propertyName="pathData"
+		android:duration="500"
+		android:startOffset="0"
+		android:valueFrom="@string/test_path_000_0"
+		android:valueTo="@string/test_path_000_1"
+		android:valueType="pathType" />
+	<objectAnimator
+		android:propertyName="pathData"
+		android:duration="500"
+		android:startOffset="500"
+		android:valueFrom="@string/test_path_000_1"
+		android:valueTo="@string/test_path_000_2"
+		android:valueType="pathType" />
+</set>
+
+
+### insert below into res/anim/test_anim_1.xml ###
+<?xml version="1.0" encoding="utf-8"?>
+<set xmlns:android="http://schemas.android.com/apk/res/android"
+xmlns:aapt="http://schemas.android.com/aapt">
+
+	<objectAnimator
+		android:propertyName="pathData"
+		android:duration="1200"
+		android:startOffset="0"
+		android:valueFrom="@string/test_path_001_0"
+		android:valueTo="@string/test_path_001_1"
+		android:valueType="pathType" />
+	<objectAnimator
+		android:propertyName="pathData"
+		android:duration="300"
+		android:startOffset="1200"
+		android:valueFrom="@string/test_path_001_1"
+		android:valueTo="@string/test_path_001_2"
+		android:valueType="pathType" />
+</set>
+
+
+### insert below into res/drawable/anim_test.xml ###
+<?xml version="1.0" encoding="utf-8"?>
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+	android:width="1200dp"
+	android:height="1200dp"
+	android:viewportWidth="120.0"
+	android:viewportHeight="120.0">
+
+	<group>
+		<path
+			android:name="test_path_000"
+			android:pathData="@string/test_path_000_0"
+			android:fillColor="#0066FF"/>
+	</group>
+	<group>
+		<path
+			android:name="test_path_001"
+			android:pathData="@string/test_path_001_0"
+			android:fillColor="#009999"/>
+	</group>
+</vector>
+
+
+### insert below into res/drawable/XXX.xml where app:srcCompat attribute of ImageView is "@drawable/XXX" ###
+<?xml version="1.0" encoding="utf-8"?>
+<animated-vector
+	xmlns:android="http://schemas.android.com/apk/res/android"
+	android:drawable="@drawable/anim_test">
+
+	<target android:name="test_path_000" android:animation="@anim/test_anim_0"/>
+	<target android:name="test_path_001" android:animation="@anim/test_anim_1"/>
+</animated-vector>
+
+
+### add below into strings.xml ###
+	<string name="test_path_000_0">M10.0,100.0 C10.0,94.5 14.5,90.0 20.0,90.0 C25.5,90.0 30.0,94.5 31.0,100.0 C27.0,101.0 24.0,102.0 20.0,102.0 C16.0,102.0 13.0,101.0 10.0,100.0 </string>
+	<string name="test_path_000_1">M10.0,50.0 C10.0,44.5 14.5,40.0 20.0,40.0 C25.5,40.0 30.0,44.5 30.0,50.0 C30.0,55.5 25.5,60.0 20.0,60.0 C14.5,60.0 10.0,55.5 10.0,50.0 </string>
+	<string name="test_path_000_2">M10.0,100.0 C10.0,94.5 14.5,90.0 20.0,90.0 C25.5,90.0 30.0,94.5 31.0,100.0 C27.0,101.0 24.0,102.0 20.0,102.0 C16.0,102.0 13.0,101.0 10.0,100.0 </string>
+	<string name="test_path_001_0">M10.0,100.0 L40.0,50.0 L40.0,50.0 L70.0,100.0 </string>
+	<string name="test_path_001_1">M20.0,90.0 L20.0,70.0 L100.0,70.0 L100.0,90.0 </string>
+	<string name="test_path_001_2">M20.0,65.0 L20.0,30.0 L100.0,30.0 L100.0,65.0 </string>
